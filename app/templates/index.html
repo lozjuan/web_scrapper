@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon mobile apps information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+</head>
+<body>
+<div class="request">
+    <h2>Amazon web scraper</h2>
+    <p>Submit a mobile app url from Amazon and get its information</p>
+    <p>Url format: http://www.amazon.com/Skype-Software-S-a-r-l/dp/B008M721MS </p>
+    <form action="{{url_for('get_info')}}" method="post">
+        URL : <input type="text" name="appURL">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div>
+    <table>
+        {% if info %}
+        <tr>
+            <td>Name: {{ info[0] }}</td>
+        </tr>
+        <tr>
+            <td>Current Version: {{ info[1] }}</td>
+        </tr>
+        <tr>
+            <td>{{ info[2] }}</td>
+        </tr>
+        <tr>
+            <td>{{ info[3] }}</td>
+        </tr>
+        {% for i in info[4] %}
+        <tr>
+            <td>{{ i }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</div>
+<div>{% if error %} {{ error }} {% endif %}</div>
+</body>
+</html>

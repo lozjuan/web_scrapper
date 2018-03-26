@@ -1,0 +1,23 @@
+h2, p{
+    text-align: center;
+}
+
+h4 {
+    margin: 0px;
+}
+
+.request{
+    margin: 100px auto 0px auto;
+    height: 300px;
+    width: 400px;
+    border-style: solid;
+}
+
+input[type='text'] {
+    margin-top: 5px;
+    width: 300px;
+}
+
+input[type='submit'] {
+    margin: 5px 300px;
+}
